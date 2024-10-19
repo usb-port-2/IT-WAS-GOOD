@@ -1,0 +1,17 @@
+{
+	"beatsPerMeasure": 4,
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"bpm": 120,
+	"difficulties": [
+		"Normal"
+	],
+	"needsVoices": true,
+	"parsedColor": -16777216,
+	"displayName": "It was good",
+	"icon": "null",
+	"name": "It was good",
+	"color": "#000000",
+	"customValues": {}
+}

@@ -1,5 +1,5 @@
 import funkin.menus.ModSwitchMenu;
-import funkin.options.keybinds.KeybindsOptions;
+import funkin.options.OptionsMenu;
 var enterPressed:Bool = false;
 // SUPER ASS CODE // WHAT THE FUCK HAPPENED TO THE FORMATTING???
 function create() {
@@ -12,7 +12,7 @@ play.x = FlxG.width / 4 - play.width / 2;
 credits.x = (FlxG.width / 4 * 3) - credits.width / 2;
 add(press = new FunkinSprite(320.5, 650).loadGraphic(Paths.image("menupress")));
 press.setGraphicSize(Std.int(press.width * 0.75));
-add(new FunkinText(5, 748, 0, "[PRESS C TO CHANGE KEYBINDS]", 16, true)).antialiasing = FlxG.mouse.visible = true;
+add(new FunkinText(5, 748, 0, "[PRESS O FOR OPTIONS]", 16, true)).antialiasing = FlxG.mouse.visible = true;
 add(flash = new FunkinSprite().makeGraphic(FlxG.width, FlxG.height)).alpha = 0;
 }
 function update() {
@@ -21,9 +21,8 @@ if (controls.SWITCHMOD) {
 openSubState(new ModSwitchMenu());
 persistentUpdate = !(persistentDraw = true);
 }
-if(FlxG.keys.justPressed.C){persistentUpdate = !(persistentDraw = true);
-    openSubState(new KeybindsOptions());}
-if (!enterPressed && FlxG.keys.justPressed.ANY && !controls.SWITCHMOD && !FlxG.keys.justPressed.C) {
+if(FlxG.keys.justPressed.O) FlxG.switchState(new OptionsMenu());
+if (!enterPressed && FlxG.keys.justPressed.ANY && !controls.SWITCHMOD && !FlxG.keys.justPressed.O) {
 enterPressed = true;
 CoolUtil.playMenuSFX(1);
 FlxTween.num(0.25, 0, 1.25, {}, (_) -> flash.alpha = _);
